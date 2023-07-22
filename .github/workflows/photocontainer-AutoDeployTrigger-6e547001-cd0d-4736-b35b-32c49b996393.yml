@@ -39,7 +39,7 @@ jobs:
           registryPassword: ${{ secrets.GITHUB_TOKEN }}
           containerAppName: photocontainer
           resourceGroup: photo
-          imageToBuild: ghcr.io/${{ github.repository_owner }}/immich:${{ github.sha }}
+          imageToBuild: ghcr.io/someonewating/immich:${{ github.sha }}
           
 
      
