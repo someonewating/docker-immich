@@ -35,8 +35,8 @@ jobs:
         with:
           appSourcePath: ${{ github.workspace }} 
           registryUrl: ghcr.io
-          registryUsername: ${{ secrets.PHOTOCONTAINER_REGISTRY_USERNAME }}
-          registryPassword: ${{ secrets.PHOTOCONTAINER_REGISTRY_PASSWORD }}
+          registryUsername: ${{ github.actor }}
+          registryPassword: ${{ secrets.GITHUB_TOKEN }}
           containerAppName: photocontainer
           resourceGroup: photo
           imageToBuild: ghcr.io/photocontainer:${{ github.sha }}
