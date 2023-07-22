@@ -35,7 +35,7 @@ jobs:
           registryPassword: ${{ secrets.PHOTOCONTAINER_REGISTRY_PASSWORD }}
           containerAppName: photocontainer
           resourceGroup: photo
-          imageToBuild: ghrc.io/immich:${{ github.sha }}
+          imageToBuild: ghrc.io/someonewating/immich:${{ github.sha }}
           dockerfilePath: Dockerfile
 
      
