@@ -8,14 +8,18 @@ on:
       [ master ]
     paths:
     - '**'
-    - '.github/workflows/photocontainer-AutoDeployTrigger-7d749342-7f4f-4203-82c3-5e7f037a0637.yml'
+    - '.github/workflows/photocontainer-AutoDeployTrigger-6e547001-cd0d-4736-b35b-32c49b996393.yml'
 
   # Allow mannually trigger 
   workflow_dispatch:
-      
+    
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout to the branch
@@ -31,12 +35,8 @@ jobs:
         with:
           appSourcePath: ${{ github.workspace }} 
           registryUrl: ghcr.io
-          registryUsername: ${{ secrets.PHOTOCONTAINER_REGISTRY_USERNAME }}
-          registryPassword: ${{ secrets.PHOTOCONTAINER_REGISTRY_PASSWORD }}
+          registryUsername: ${{ github.actor }}
+          registryPassword: ${{ secrets.GITHUB_TOKEN }}
           containerAppName: photocontainer
           resourceGroup: photo
-          imageToBuild: ghcr.io/immich:${{ github.sha }}
-          
-
-     
-
+          imageToBuild: ghcr.io/someonewating/immich:${{ github.sha }}
