@@ -34,12 +34,12 @@ jobs:
         uses: azure/container-apps-deploy-action@v1
         with:
           appSourcePath: ${{ github.workspace }} 
-          registryUrl: ghrc.io
+          registryUrl: ghcr.io
           registryUsername: ${{ secrets.PHOTOCONTAINER_REGISTRY_USERNAME }}
           registryPassword: ${{ secrets.PHOTOCONTAINER_REGISTRY_PASSWORD }}
           containerAppName: photocontainer
           resourceGroup: photo
-          imageToBuild: ghrc.io/someonewating/immich:${{ github.sha }}
+          imageToBuild: ghcr.io/someonewating/immich:${{ github.sha }}
           dockerfilePath: Dockerfile
 
      
